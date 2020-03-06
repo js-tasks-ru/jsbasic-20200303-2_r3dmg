@@ -6,6 +6,5 @@
  */
 
 function sum(m, n) {
-  var taska0 = m + n;
-  return taska0;
+  return m + n;
 }

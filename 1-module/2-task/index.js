@@ -10,7 +10,13 @@ function print(text) {
  * чтобы функция sayHello работала корректно
  */
 function isValid(name) {
+  if (typeof name === "undefined" || name.length < 4 || name.search('\ ') >= 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
+
 
 function sayHello() {
   const userName = prompt('Введите ваше имя');
