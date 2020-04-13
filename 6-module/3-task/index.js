@@ -26,8 +26,32 @@ class Menu {
   `;
 
   constructor(element) {
+    let self = this;
+    this.el = element;
+    this.el.innerHTML = (this.template);
+    this.mainMenu = this.el.querySelector('.list-group')
+    this.mainItems = this.el.querySelectorAll('.list-group-item')
+    this.subItems = this.el.querySelectorAll('.dropdown-menu')
+    this.drop = document.querySelector('.backdrop')
+
+
+    this.pointerenter()
+  }
+
+
+  pointerenter() {
+    for (let i = 0; i < this.mainItems.length; i++) {
+      this.mainItems[i].addEventListener("pointerenter", () => {
+        this.subItems[i].classList.add('show')
+        this.drop.classList.add('show')
+      })
+  
+        this.mainItems[i].addEventListener("pointerleave", () => {
+        this.subItems[i].classList.remove('show')
+        this.drop.classList.remove('show')
+      })
+      }
   }
 }
-
 // Делает класс доступным глобально, сделано для упрощения, чтобы можно было его вызывать из другого скрипта
 window.Menu = Menu;
